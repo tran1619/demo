@@ -11,11 +11,13 @@ type Human struct {
 type Student struct {
 	Human  // anonymous field
 	school string
+	loan float32
 }
 
 type Employee struct {
 	Human
 	company string
+	money float32
 }
 
 // define a method in Human
@@ -64,8 +66,8 @@ type ElderlyGent interface {
 }
 
 func main() {
-	mark := Student{Human{"Mark", 25, "222-222-YYYY"}, "MIT"}
-	sam := Employee{Human{"Sam", 45, "111-888-XXXX"}, "Golang Inc"}
+	mark := Student{Human{"Mark", 25, "222-222-YYYY"}, "MIT", 10000}
+	sam := Employee{Human{"Sam", 45, "111-888-XXXX"}, "Golang Inc", 5000}
 
 	mark.SayHi()
 	sam.SayHi()
