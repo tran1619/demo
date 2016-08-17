@@ -1,0 +1,12 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "golang.org/x/tour/tree",
+			"repository": "https://go.googlesource.com/tour",
+			"revision": "c9941e54e5b8e9618a8c951bc89798f85f6a7a71",
+			"branch": "master",
+			"path": "/tree"
+		}
+	]
+}
