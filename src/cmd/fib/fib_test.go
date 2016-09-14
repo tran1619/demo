@@ -3,25 +3,25 @@ package fib
 import "testing"
 
 type fibTest struct {
-  n int //input
-  expected  int // expected result
+	n        int64 //input
+	expected int64 // expected result
 }
 
-var fibTests = []fibTest {
-  {1,1}, {2,1}, {3,2}, {4,3}, {5,5}, {6,8}, {7,13},
+var fibTests = []fibTest{
+	{1, 1}, {2, 1}, {3, 2}, {4, 3}, {5, 5}, {6, 8}, {7, 13},
 }
 
 // driver function
-func TestFib(t *testing.T)  {
-  for _, tt := range fibTests {
-    actual := Fib(tt.n)
-    if actual != tt.expected {
-      t.Errorf("Fib(%d): expected %d, actual %d", tt.n, tt.expected, actual)
-    }
-  }
+func TestFib(t *testing.T) {
+	for _, tt := range fibTests {
+		actual := Fib(tt.n)
+		if actual != tt.expected {
+			t.Errorf("Fib(%d): expected %d, actual %d", tt.n, tt.expected, actual)
+		}
+	}
 }
 
-func benchmarkFib(i int, b *testing.B) {
+func benchmarkFib(i int64, b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		Fib(i)
 	}
@@ -34,10 +34,10 @@ func BenchmarkFib10(b *testing.B) { benchmarkFib(10, b) }
 func BenchmarkFib20(b *testing.B) { benchmarkFib(20, b) }
 func BenchmarkFib40(b *testing.B) { benchmarkFib(40, b) }
 
-var result int
+var result int64
 
 func BenchmarkFibComplete(b *testing.B) {
-	var r int
+	var r int64
 	for n := 0; n < b.N; n++ {
 		// always record the result of Fib to prevent
 		// the compiler eliminating the function call.
@@ -45,5 +45,5 @@ func BenchmarkFibComplete(b *testing.B) {
 	}
 	// always store the result to a package level variable
 	// so the compiler cannot eliminate the Benchmark itself.
-result = r
+	result = r
 }
